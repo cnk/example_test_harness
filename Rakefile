@@ -1,11 +1,14 @@
 require 'rake/testtask'
 require 'rspec'
 require 'rspec/core/rake_task'
-#To invoke rake task
-# BROWSER=safari rake spec:livewire             You can choose what browser you want to use, if you use the launch_browser method
-# rake spec:FolderName                          This will run all the files in the folder
-# rake spec:FileNameInSandBox                   This runs a specific file in the sandbox folder (only works for the sandbox)namespace :sandbox do
-#Special constructor rule for the sandbox
+# To invoke rake task     
+# rake namespace:test_all                           runs all files in the folder associated with that namespace
+# rake namespace:{fileName_leavingOff_rspec.rb}     runs a specific file in in the folder assiciated with that namespace
+
+# Examples: 
+# rake test:test_all    runs all files in spec/test
+# rake test:mytestfile  runs spec/test/mytestfile_rspec.rb
+# rake dev:mytestfile   runs spec/dev/mytestfile_rspec.rb
 
 namespace :spec do
   RSpec::Core::RakeTask.new(:test_all) do |t|
